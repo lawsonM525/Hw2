@@ -1,0 +1,20 @@
+input: int[n] array
+output: int[n] array (modified in-place)
+method: 
+the following code loops through the array and updates a map with how many of each number it find in the array.
+a new array is then created by repeating elements in the array as stated in the map.
+
+map = [k] // array filled with 0's of length k
+
+loop i from 0 to n : //loops through array
+    map[array[i]] = map[array[i]]+1 //increases count of numbers in map array
+
+
+loop i from 0 to k: //loops until max number in array
+    index = 0
+    loop i from 0 to map[array[i]]: //loops the number of times the number was found in the array
+        array[index] = i //changes the element at the current index in the array to the current number
+        index = index + 1
+
+
+
