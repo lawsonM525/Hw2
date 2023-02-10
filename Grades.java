@@ -4,7 +4,7 @@ public class Grades {
 
     // Constructor
     public Grades() {
-        this.scores = new int[] {50,30, 60, 80, 80, 90, 100};
+        this.scores = new int[] {50,30, 60, 80, 100, 80, 90, 100};
     }
 
     // Helper functions
@@ -100,7 +100,13 @@ public class Grades {
      * Tester for getRank function
      * @param id id of rank to be retrieved
      */
-    public int 
+    public void testGetRank(int id){
+        System.out.println("=== TESTING getRank ===");
+        System.out.println("This is the array of scores we are working with:");
+        printArray(scores);
+        System.out.println("Student " + id + " got " + getScore(id) + " points.");
+        System.out.println("Student " + id + " got rank " + getRank(id) + " after sorting.");
+    }
 
     /**
      * Checks to see if anyone received a perfect score
@@ -116,6 +122,20 @@ public class Grades {
     }
 
     /**
+     * Tester for perfectScoreQ function
+     */
+    public void testPerfectScoreQ(){
+        System.out.println("=== TESTING perfectScoreQ ===");
+        System.out.println("This is the array of scores we are working with:");
+        printArray(scores);
+        if (perfectScoreQ()){
+            System.out.println("Someone got a perfect score!");
+        } else {
+            System.out.println("No one got a perfect score.");
+        }
+    }
+
+    /**
      * Checked to see if anyone received a score of 0 points
      * @return boolean
      */
@@ -127,6 +147,20 @@ public class Grades {
         }
         return false;
     }
+    
+    /**
+     * Tester for bottomScoreQ function
+     */
+    public void testBottomScoreQ(){
+        System.out.println("=== TESTING bottomScoreQ ===");
+        System.out.println("This is the array of scores we are working with:");
+        printArray(scores);
+        if (bottomScoreQ()){
+            System.out.println("Someone got a score of 0!");
+        } else {
+            System.out.println("No one got a score of 0.");
+        }
+    }
 
     /**
      * finds the maximum score in the array
@@ -134,6 +168,16 @@ public class Grades {
      */
     public int getMaxScore(){
         return sortedScores()[0];
+    }
+
+    /**
+     * Tester for getMaxScore function
+     */
+    public void testGetMaxScore(){
+        System.out.println("=== TESTING getMaxScore ===");
+        System.out.println("This is the array of scores we are working with:");
+        printArray(scores);
+        System.out.println("The maximum score is " + getMaxScore());
     }
 
     /**
@@ -145,11 +189,21 @@ public class Grades {
         int count = 0;
         for(int i = 0; i < sorted.length; i++){
             if(sorted[i] == getMaxScore()){
-                count++; //TODO: make this stop after it finds an int that is no longer the max
+                count++; 
             }
         }
         return count;
      }
+
+    /**
+     * Tester for nrMaxScore function
+     */
+    public void testNrMaxScore(){
+        System.out.println("=== TESTING nrMaxScore ===");
+        System.out.println("This is the array of scores we are working with:");
+        printArray(scores);
+        System.out.println("The number of people who got the maximum score is " + nrMaxScore());
+    }
 
      /**
       * finds the minimum score in the array
@@ -157,6 +211,16 @@ public class Grades {
       */
     public int getMinScore(){
         return sortedScores()[sortedScores().length-1];
+    }
+
+    /**
+     * Tester for getMinScore function
+     */
+    public void testGetMinScore(){
+        System.out.println("=== TESTING getMinScore ===");
+        System.out.println("This is the array of scores we are working with:");
+        printArray(scores);
+        System.out.println("The minimum score is " + getMinScore());
     }
 
     /**
@@ -174,6 +238,16 @@ public class Grades {
         return count;
     }
 
+    /**
+     * Tester for nrMinScore function
+     */
+    public void testNrMinScore(){
+        System.out.println("=== TESTING nrMinScore ===");
+        System.out.println("This is the array of scores we are working with:");
+        printArray(scores);
+        System.out.println("The number of people who got the minimum score is " + nrMinScore());
+    }
+
     // Main Function
     public static void main(String[] args){
         System.out.println("$$$ PROGRAM STARTING $$$");
@@ -181,8 +255,17 @@ public class Grades {
         Grades hw1Grades = new Grades();
 
         //Calling testers
-        hw1Grades.testGetScore(3);
-        hw1Grades.testSortedScores();
+        // hw1Grades.testGetScore(3);
+        // hw1Grades.testSortedScores();
+        // hw1Grades.testGetRank(3);
+        // hw1Grades.testPerfectScoreQ();
+        // hw1Grades.testBottomScoreQ();
+        // hw1Grades.testGetMaxScore();
+        // hw1Grades.testNrMaxScore();
+        // hw1Grades.testGetMinScore();
+        // hw1Grades.testNrMinScore();
+
+        
 
     }
 
