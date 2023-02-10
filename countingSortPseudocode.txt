@@ -17,4 +17,6 @@ loop i from 0 to k: //loops until max number in array
         index = index + 1
 
 
+// you can create one function to make the counting map and then another function to produce an array from the counting map
+
 

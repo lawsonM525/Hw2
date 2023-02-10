@@ -7,14 +7,41 @@ public class Grades {
         this.scores = scores;
     }
 
+    // Helper functions
+    /**
+     * print all elements in array
+     * @param arr array to be printed
+     */
+    public static void printArray(int[] arr) {
+        System.out.print(" - ");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " - ");
+        }
+        System.out.println();
+    }
+
     // Functions on grades
     /**
      * retrieves score of student with given id
-     * @param id
+     * @param arr array of scores
+     * @param id id of student who's score is being retrieved
+     * @return int score of student with given id
      */
-    public int getScore(int id) {
-        return scores[id-1];
+    public static int getScore(int[] arr, int id) {
+        return arr[id-1];
     }
+
+    /**
+     * Tester for getScore function
+     * @param arr array of scores
+     * @param id id of student who's score is being retrieved
+     */
+    public static void testGetScore(int [] arr, int id) {
+        System.out.println("This is the array of scores we are working with:");
+        printArray(arr);
+        System.out.println("Student " + id + " got " + getScore(arr, id) + " points.");
+    }
+
 
     /**
      * sorts the array of scores and returns sorted array
@@ -129,6 +156,17 @@ public class Grades {
             }
         }
         return count;
+    }
+
+    // Main Function
+    public static void main(String[] args){
+        System.out.println("$$$ PROGRAM STARTING $$$");
+
+        int[] smallArr = {50, 60, 80,100}; // creating small array for testing
+
+        //Calling testers
+        testGetScore(smallArr, 3);
+
     }
 
 
