@@ -3,8 +3,8 @@ public class Grades {
     private int[] scores; 
 
     // Constructor
-    public Grades(int[] scores) {
-        this.scores = scores;
+    public Grades() {
+        this.scores = new int[] {50,30, 60, 80, 80, 90, 100};
     }
 
     // Helper functions
@@ -27,19 +27,19 @@ public class Grades {
      * @param id id of student who's score is being retrieved
      * @return int score of student with given id
      */
-    public static int getScore(int[] arr, int id) {
-        return arr[id-1];
+    public int getScore(int id) {
+        return this.scores[id-1];
     }
 
     /**
      * Tester for getScore function
-     * @param arr array of scores
      * @param id id of student who's score is being retrieved
      */
-    public static void testGetScore(int [] arr, int id) {
+    public void testGetScore(int id) {
+        System.out.println("TESTING get Score");
         System.out.println("This is the array of scores we are working with:");
-        printArray(arr);
-        System.out.println("Student " + id + " got " + getScore(arr, id) + " points.");
+        printArray(this.scores);
+        System.out.println("Student " + id + " got " + getScore(id) + " points.");
     }
 
 
@@ -51,15 +51,14 @@ public class Grades {
         int[] map = new int[101]; //array to hold number of times each number appears in scores array
         int[] sorted = new int[scores.length]; //array to hold sorted scores
 
-        //TODO: make to go in descending order
+
         for(int i = 0; i < scores.length; i++){
             map[scores[i]] = map[scores[i]]+1;
         }
 
         int index = 0;
     
-        // TODO: create a new map with updated length
-        for(int i = 0; i < map.length; i++){
+        for(int i = (map.length -1); i >=0; i--){
             for(int j = 0; j < map[i]; j++){
                 sorted[index] = i;
                 index++;
@@ -68,6 +67,17 @@ public class Grades {
 
         return sorted;
 
+    }
+
+    /**
+     * Tester for sortedScores function
+     */
+    public void testSortedScores(){
+        System.out.println("=== TESTING sortedScores ===");
+        System.out.println("This is the array of scores we are sorting");
+        printArray(scores);
+        System.out.println("This is the result from sortedScores");
+        printArray(sortedScores());
     }
 
     /**
@@ -85,6 +95,12 @@ public class Grades {
         }
         return rank;
     }
+
+    /**
+     * Tester for getRank function
+     * @param id id of rank to be retrieved
+     */
+    public int 
 
     /**
      * Checks to see if anyone received a perfect score
@@ -162,10 +178,11 @@ public class Grades {
     public static void main(String[] args){
         System.out.println("$$$ PROGRAM STARTING $$$");
 
-        int[] smallArr = {50, 60, 80,100}; // creating small array for testing
+        Grades hw1Grades = new Grades();
 
         //Calling testers
-        testGetScore(smallArr, 3);
+        hw1Grades.testGetScore(3);
+        hw1Grades.testSortedScores();
 
     }
 
