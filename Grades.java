@@ -21,6 +21,15 @@ public class Grades {
         System.out.println();
     }
 
+    //Length Accessor
+    /**
+     * returns length of scores array
+     * @return int length of scores array
+     */
+    public int getLength() {
+        return this.scores.length;
+    }
+
     // Functions on grades
     /**
      * retrieves score of student with given id
@@ -266,45 +275,57 @@ public class Grades {
         // hw1Grades.testGetMinScore();
         // hw1Grades.testNrMinScore();
 
+
+
         Scanner sc = new Scanner(System.in);
         while (true) {
-            System.out.print("Enter a number (1-8) or type 'quit' to exit: ");
+            System.out.println("Enter a number (1-9) or type 'quit' to exit: ");
+            System.out.println(" 1. Get score of a student");
+            System.out.println(" 2. Get rank of a student");
+            System.out.println(" 3. Did anybody receive a perfect score of 100?");
+            System.out.println(" 4. Did anybody receive a score of 0 points?");
+            System.out.println(" 5. What is the maximum score?");
+            System.out.println(" 6. How many people got the maximum score?");
+            System.out.println(" 7. What is the minimum score?");
+            System.out.println(" 8. How many people got the minimum score?");
+            System.out.println(" 9. Print a sorted array of the scores");
             String input = sc.nextLine();
             if (input.equals("quit")) {
                 break;
             }
-            int option = Integer.parseInt(input);
+            String option = input;
             switch (option) {
-                case 1:
-                    System.out.print("Enter student ID: ");
+                case "1":
+                    System.out.print("Enter student ID between 1 and " + hw1.getLength() +": ");
                     int id = sc.nextInt();
                     hw1.getScore(id);
                     break;
-                case 2:
+                case "2":
                     System.out.print("Enter student ID: ");
                     id = sc.nextInt();
                     hw1.getRank(id);
                     break;
-                case 3:
+                case "3":
                     System.out.println("Did anybody receive a perfect score of 100? " + hw1.perfectScoreQ());
                     break;
-                case 4:
+                case "4":
                     System.out.println("Did anybody receive a score of 0 points? " + hw1.bottomScoreQ());
                     break;
-                case 5:
+                case "5":
                     System.out.println("The maximum score is: " + hw1.getMaxScore());
                     break;
-                case 6:
+                case "6":
                     System.out.println("Number of students who received the maximum score: " + hw1.nrMaxScore());
                     break;
-                case 7:
+                case "7":
                     System.out.println("The minimum score is: " + hw1.getMinScore());
                     break;
-                case 8:
+                case "8":
                     System.out.println("Number of students who received the minimum score: " + hw1.nrMinScore());
                     break;
-                case 9:
-                    System.out.println("Sorted list of all scores: " + hw1.sortedScores());
+                case "9":
+                    System.out.println("Sorted list of all scores: ");
+                    printArray(hw1.sortedScores());
                     break;
                 default:
                     System.out.println("Invalid input. Please enter a number between 1-8 or type 'quit' to exit.");
