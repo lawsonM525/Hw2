@@ -94,16 +94,20 @@ public class Grades {
      * finds student rank in array after sorting
      * @param id
      */
-    public int getRank(int id){
+    public int[] getRank(int id){
         int[] sorted = sortedScores();
-        int rank = 1;
-        for(int i = 0; i < sorted.length; i++){
-            if(sorted[i] == scores[id-1]){
-                return rank;
+        int score = getScore(id);
+        int k = 1;
+        int m = 0;
+        for (int i = 0; i <sorted.length; i++) {
+            if (sorted[i] > score) {
+                k++;
+            } else if (sorted[i] == score) {
+                m++;
+                
             }
-            rank++;
         }
-        return rank;
+        return new int[] {k, k + m - 1};
     }
 
     /**
@@ -305,7 +309,8 @@ public class Grades {
                     System.out.print("Enter student ID: ");
                     id = sc.nextInt();
                     sc.nextLine();
-                    System.out.println("This student got a score of: " + hw1.getScore(id));
+                    System.out.println("This student got a rank of: "); 
+                    printArray(hw1.getRank(id));
                     break;
                 case "3":
                     System.out.println("Did anybody receive a perfect score of 100? " + hw1.perfectScoreQ());
@@ -333,5 +338,6 @@ public class Grades {
                     System.out.println("Invalid input. Please enter a number between 1-8 or type 'quit' to exit.");
             }
         }
+        sc.close();
     }
 }
