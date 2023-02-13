@@ -265,15 +265,15 @@ public class Grades {
         Grades hw1 = new Grades();
 
         //Calling testers
-        // hw1Grades.testGetScore(3);
-        // hw1Grades.testSortedScores();
-        // hw1Grades.testGetRank(3);
-        // hw1Grades.testPerfectScoreQ();
-        // hw1Grades.testBottomScoreQ();
-        // hw1Grades.testGetMaxScore();
-        // hw1Grades.testNrMaxScore();
-        // hw1Grades.testGetMinScore();
-        // hw1Grades.testNrMinScore();
+        // hw1.testGetScore(3);
+        // hw1.testSortedScores();
+        // hw1.testGetRank(3);
+        // hw1.testPerfectScoreQ();
+        // hw1.testBottomScoreQ();
+        // hw1.testGetMaxScore();
+        // hw1.testNrMaxScore();
+        // hw1.testGetMinScore();
+        // hw1.testNrMinScore();
 
 
 
@@ -298,12 +298,14 @@ public class Grades {
                 case "1":
                     System.out.print("Enter student ID between 1 and " + hw1.getLength() +": ");
                     int id = sc.nextInt();
-                    hw1.getScore(id);
+                    sc.nextLine();
+                    System.out.println("This student got a score of: " + hw1.getScore(id));
                     break;
                 case "2":
                     System.out.print("Enter student ID: ");
                     id = sc.nextInt();
-                    hw1.getRank(id);
+                    sc.nextLine();
+                    System.out.println("This student got a score of: " + hw1.getScore(id));
                     break;
                 case "3":
                     System.out.println("Did anybody receive a perfect score of 100? " + hw1.perfectScoreQ());
