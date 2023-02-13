@@ -1,3 +1,4 @@
+import java.util.Scanner;
 public class Grades {
     
     private int[] scores; 
@@ -252,7 +253,7 @@ public class Grades {
     public static void main(String[] args){
         System.out.println("$$$ PROGRAM STARTING $$$");
 
-        Grades hw1Grades = new Grades();
+        Grades hw1 = new Grades();
 
         //Calling testers
         // hw1Grades.testGetScore(3);
@@ -265,9 +266,49 @@ public class Grades {
         // hw1Grades.testGetMinScore();
         // hw1Grades.testNrMinScore();
 
-        
-
+        Scanner sc = new Scanner(System.in);
+        while (true) {
+            System.out.print("Enter a number (1-8) or type 'quit' to exit: ");
+            String input = sc.nextLine();
+            if (input.equals("quit")) {
+                break;
+            }
+            int option = Integer.parseInt(input);
+            switch (option) {
+                case 1:
+                    System.out.print("Enter student ID: ");
+                    int id = sc.nextInt();
+                    hw1.getScore(id);
+                    break;
+                case 2:
+                    System.out.print("Enter student ID: ");
+                    id = sc.nextInt();
+                    hw1.getRank(id);
+                    break;
+                case 3:
+                    System.out.println("Did anybody receive a perfect score of 100? " + hw1.perfectScoreQ());
+                    break;
+                case 4:
+                    System.out.println("Did anybody receive a score of 0 points? " + hw1.bottomScoreQ());
+                    break;
+                case 5:
+                    System.out.println("The maximum score is: " + hw1.getMaxScore());
+                    break;
+                case 6:
+                    System.out.println("Number of students who received the maximum score: " + hw1.nrMaxScore());
+                    break;
+                case 7:
+                    System.out.println("The minimum score is: " + hw1.getMinScore());
+                    break;
+                case 8:
+                    System.out.println("Number of students who received the minimum score: " + hw1.nrMinScore());
+                    break;
+                case 9:
+                    System.out.println("Sorted list of all scores: " + hw1.sortedScores());
+                    break;
+                default:
+                    System.out.println("Invalid input. Please enter a number between 1-8 or type 'quit' to exit.");
+            }
+        }
     }
-
-
 }
